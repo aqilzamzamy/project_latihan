@@ -68,8 +68,7 @@ class SiswaPage extends StatelessWidget {
                 ),
 
                 onTap: () {
-                  Get.to(
-                    () => AppRoutes.siswa_page,
+                  Get.toNamed(AppRoutes.edit_page,
                     arguments: {
                       'siswa': siswa,
                     },
@@ -84,7 +83,7 @@ class SiswaPage extends StatelessWidget {
         backgroundColor: Colors.deepPurple,
         child: const Icon(Icons.add, color: Colors.white),
         onPressed: () {
-          Get.to(() => AddSiswaPage());
+          Get.toNamed(AppRoutes.add_page);
         },
       ),
     );

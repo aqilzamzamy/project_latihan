@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:project_latihan/pages/siswa_page.dart';
+import 'package:project_latihan/routes/page.dart';
+import 'package:project_latihan/routes/route.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: SiswaPage(),
-    );
+  initialRoute: AppRoutes.siswa_page,
+  getPages: AppPages.pages,
+  debugShowCheckedModeBanner: false,
+);
+
   }
 }
