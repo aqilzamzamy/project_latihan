@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:project_latihan/controllers/editsiswa_controller.dart';
+import 'package:project_latihan/controllers/addsiswa_controller.dart';
 import '../components/custom_textfield.dart';
 import '../components/custom_button.dart';
 
-class EditSiswaPage extends StatelessWidget {
-  const EditSiswaPage({super.key});
+class AddSiswaPage extends StatelessWidget {
+  AddSiswaPage({super.key});
+
+  final AddSiswaController controller =
+      Get.put(AddSiswaController());
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(EditSiswaController());
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Edit Siswa"),
+        title: const Text("Tambah Siswa"),
         backgroundColor: Colors.deepPurple,
-        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -43,7 +43,7 @@ class EditSiswaPage extends StatelessWidget {
             CustomButton(
               myText: "Simpan",
               myTextColor: Colors.deepPurple,
-              onPressed: controller.simpanPerubahan,
+              onPressed: controller.saveSiswa,
             ),
           ],
         ),
