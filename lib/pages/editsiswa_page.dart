@@ -5,12 +5,12 @@ import '../components/custom_textfield.dart';
 import '../components/custom_button.dart';
 
 class EditSiswaPage extends StatelessWidget {
-  const EditSiswaPage({super.key});
+  EditSiswaPage({super.key});
+
+  final EditSiswaController controller = Get.find<EditSiswaController>();
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(EditSiswaController());
-
     return Scaffold(
       appBar: AppBar(
         title: const Text("Edit Siswa"),

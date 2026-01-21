@@ -3,13 +3,13 @@ import 'package:get/get.dart';
 import 'package:project_latihan/components/custom_text.dart';
 import 'package:project_latihan/controllers/siswa_controller.dart';
 import 'package:project_latihan/models/siswa.dart';
-import 'package:project_latihan/pages/addsiswa_page.dart';
+
 import 'package:project_latihan/routes/route.dart';
 
 class SiswaPage extends StatelessWidget {
   SiswaPage({super.key});
 
-  final SiswaController siswaController = Get.put(SiswaController());
+  final SiswaController siswaController = Get.find<SiswaController>();
 
   @override
   Widget build(BuildContext context) {
