@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:project_latihan/components/custom_text.dart';
 import 'package:project_latihan/controllers/siswa_controller.dart';
 import 'package:project_latihan/models/siswa.dart';
-import 'package:project_latihan/pages/editsiswa_page.dart';
+import 'package:project_latihan/pages/addsiswa_page.dart';
+import 'package:project_latihan/routes/route.dart';
 
 class SiswaPage extends StatelessWidget {
   SiswaPage({super.key});
@@ -68,9 +69,8 @@ class SiswaPage extends StatelessWidget {
 
                 onTap: () {
                   Get.to(
-                    () => EditSiswaPage(),
+                    () => AppRoutes.siswa_page,
                     arguments: {
-                      'index': index,
                       'siswa': siswa,
                     },
                   );
@@ -80,6 +80,13 @@ class SiswaPage extends StatelessWidget {
           },
         );
       }),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepPurple,
+        child: const Icon(Icons.add, color: Colors.white),
+        onPressed: () {
+          Get.to(() => AddSiswaPage());
+        },
+      ),
     );
   }
 }

@@ -1,36 +1,29 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../controllers/siswa_controller.dart';
-import '../models/siswa.dart';
+import 'package:flutter/material.dart';
+import 'siswa_controller.dart';
 
-class EditSiswaController extends GetxController {
+class AddSiswaController extends GetxController {
   final SiswaController siswaController = Get.find<SiswaController>();
 
   final nameController = TextEditingController();
   final absenController = TextEditingController();
   final makananController = TextEditingController();
 
-  late Siswa siswa;
-
-  @override
-  void onInit() {
-    super.onInit();
-
-    siswa = Get.arguments['siswa'];
-    nameController.text = siswa.name;
-    absenController.text = siswa.absen.toString();
-    makananController.text = siswa.makanan;
-  }
-
-  void simpanPerubahan() {
-    siswaController.updateSiswa(
-      siswa.id!, // key Firebase
+  void saveSiswa() {
+    siswaController.addSiswa(
       nameController.text,
       int.tryParse(absenController.text) ?? 0,
       makananController.text,
     );
 
+    clearForm();
     Get.back();
+  }
+
+  void clearForm() {
+    nameController.clear();
+    absenController.clear();
+    makananController.clear();
   }
 
   @override
