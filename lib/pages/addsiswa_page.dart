@@ -6,9 +6,8 @@ import '../components/custom_button.dart';
 
 class AddSiswaPage extends StatelessWidget {
   AddSiswaPage({super.key});
-
-  final AddSiswaController controller =
-      Get.put(AddSiswaController());
+  
+  final AddSiswaController controller = Get.find<AddSiswaController>();
 
   @override
   Widget build(BuildContext context) {
