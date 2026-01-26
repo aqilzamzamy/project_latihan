@@ -3,7 +3,6 @@ import 'package:project_latihan/models/siswa.dart';
 import 'package:project_latihan/services/siswa_firebase.dart';
 
 class SiswaController extends GetxController {
-
   final SiswaFirebaseService _service = SiswaFirebaseService();
 
   RxList<Siswa> siswa = <Siswa>[].obs;
@@ -15,7 +14,7 @@ class SiswaController extends GetxController {
       siswa.value = data;
     });
   }
-  
+
   // var siswa = <Siswa>[
   //   Siswa(
   //     name: "Enrico Octaviano",
@@ -58,9 +57,7 @@ class SiswaController extends GetxController {
   // }
 
   void addSiswa(String name, int absen, String makanan) {
-    _service.addSiswa(
-      Siswa(name: name, absen: absen, makanan: makanan),
-    );
+    _service.addSiswa(Siswa(name: name, absen: absen, makanan: makanan));
   }
 
   void updateSiswa(String id, String name, int absen, String makanan) {
@@ -71,5 +68,10 @@ class SiswaController extends GetxController {
 
   void deleteSiswa(String id) {
     _service.deleteSiswa(id);
+  }
+
+  double get contentWidth {
+    double screenWidth = Get.width;
+    return screenWidth > 600 ? 600 : screenWidth;
   }
 }
