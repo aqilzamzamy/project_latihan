@@ -11,18 +11,27 @@ class EditSiswaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final media = MediaQuery.of(context);
+    final isLandscape = media.orientation == Orientation.landscape;
+
+    final contentWidth = isLandscape
+        ? media.size.width * 0.6
+        : media.size.width;
+
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: const Text("Edit Siswa"),
         backgroundColor: Colors.deepPurple,
         centerTitle: true,
       ),
       body: Center(
-        child: SizedBox(
-          width: controller.contentWidth,
-          child: Padding(
+        child: SingleChildScrollView(
+          child: Container(
+            width: contentWidth > 600 ? 600 : contentWidth,
             padding: const EdgeInsets.all(16),
             child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 CustomTextField(
                   label: "Nama",
