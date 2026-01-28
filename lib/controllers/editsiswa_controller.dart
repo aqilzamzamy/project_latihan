@@ -33,10 +33,12 @@ class EditSiswaController extends GetxController {
     Get.back();
   }
 
-  // double get contentWidth {
-  //   double screenWidth = Get.width;
-  //   return screenWidth > 600 ? 600 : screenWidth;
-  // }
+  double get contentWidth {
+    double screenWidth = Get.mediaQuery.size.width;
+    bool isLandscape = Get.mediaQuery.orientation == Orientation.landscape;
+    double width = isLandscape ? screenWidth * 0.6 : screenWidth;
+    return width > 600 ? 600 : width;
+  }
 
   @override
   void onClose() {

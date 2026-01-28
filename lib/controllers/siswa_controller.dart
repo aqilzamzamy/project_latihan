@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_latihan/models/siswa.dart';
 import 'package:project_latihan/services/siswa_firebase.dart';
@@ -70,8 +71,10 @@ class SiswaController extends GetxController {
     _service.deleteSiswa(id);
   }
 
-  // double get contentWidth {
-  //   double screenWidth = Get.width;
-  //   return screenWidth > 600 ? 600 : screenWidth;
-  // }
+  bool get isLandscape => Get.mediaQuery.orientation == Orientation.landscape;
+
+  double get contentWidth {
+    double screenWidth = Get.mediaQuery.size.width;
+    return screenWidth > 900 ? 900.0 : screenWidth;
+  }
 }

@@ -11,13 +11,6 @@ class EditSiswaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final media = MediaQuery.of(context);
-    final isLandscape = media.orientation == Orientation.landscape;
-
-    final contentWidth = isLandscape
-        ? media.size.width * 0.6
-        : media.size.width;
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
@@ -28,7 +21,7 @@ class EditSiswaPage extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Container(
-            width: contentWidth > 600 ? 600 : contentWidth,
+            width: controller.contentWidth,
             padding: const EdgeInsets.all(16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
