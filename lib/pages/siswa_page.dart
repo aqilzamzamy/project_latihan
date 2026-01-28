@@ -13,12 +13,6 @@ class SiswaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final media = MediaQuery.of(context);
-    final isLandscape = media.orientation == Orientation.landscape;
-    final screenWidth = media.size.width;
-
-    final contentWidth = screenWidth > 900 ? 900.0 : screenWidth;
-
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
@@ -35,38 +29,32 @@ class SiswaPage extends StatelessWidget {
       ),
       body: Center(
         child: SizedBox(
-          width: contentWidth,
+          width: siswaController.contentWidth,
           child: Obx(() {
             if (siswaController.siswa.isEmpty) {
-              return const Center(
-                child: Text("Data siswa kosong"),
-              );
+              return const Center(child: Text("Data siswa kosong"));
             }
 
-            return isLandscape
+            return siswaController.isLandscape
                 ? GridView.builder(
-              padding: const EdgeInsets.all(12),
-            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-              maxCrossAxisExtent: 500, // lebar maksimal card
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 12,
-              childAspectRatio: 3, // bikin card lebih tinggi
-            ),
-            itemCount: siswaController.siswa.length,
-            itemBuilder: (context, index) {
-              return _buildSiswaCard(
-                siswaController.siswa[index],
-              );
-            },
-          )
-
+                    padding: const EdgeInsets.all(12),
+                    gridDelegate:
+                        const SliverGridDelegateWithMaxCrossAxisExtent(
+                          maxCrossAxisExtent: 500, // lebar maksimal card
+                          mainAxisSpacing: 12,
+                          crossAxisSpacing: 12,
+                          childAspectRatio: 3, // bikin card lebih tinggi
+                        ),
+                    itemCount: siswaController.siswa.length,
+                    itemBuilder: (context, index) {
+                      return _buildSiswaCard(siswaController.siswa[index]);
+                    },
+                  )
                 : ListView.builder(
                     padding: const EdgeInsets.all(12),
                     itemCount: siswaController.siswa.length,
                     itemBuilder: (context, index) {
-                      return _buildSiswaCard(
-                        siswaController.siswa[index],
-                      );
+                      return _buildSiswaCard(siswaController.siswa[index]);
                     },
                   );
           }),
@@ -85,12 +73,9 @@ class SiswaPage extends StatelessWidget {
   Widget _buildSiswaCard(Siswa siswa) {
     return Card(
       elevation: 4,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: ListTile(
-        contentPadding:
-            const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+        contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         title: CustomText(
           myText: siswa.name,
           myTextColor: Colors.black,
@@ -105,13 +90,9 @@ class SiswaPage extends StatelessWidget {
           fontWeight: FontWeight.normal,
           align: TextAlign.start,
         ),
-        trailing:
-            const Icon(Icons.edit, color: Colors.deepPurple),
+        trailing: const Icon(Icons.edit, color: Colors.deepPurple),
         onTap: () {
-          Get.toNamed(
-            AppRoutes.edit_page,
-            arguments: {'siswa': siswa},
-          );
+          Get.toNamed(AppRoutes.edit_page, arguments: {'siswa': siswa});
         },
       ),
     );
