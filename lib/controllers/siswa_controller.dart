@@ -70,8 +70,8 @@ class SiswaController extends GetxController {
     _service.deleteSiswa(id);
   }
 
-  double get contentWidth {
-    double screenWidth = Get.width;
-    return screenWidth > 600 ? 600 : screenWidth;
-  }
+  // double get contentWidth {
+  //   double screenWidth = Get.width;
+  //   return screenWidth > 600 ? 600 : screenWidth;
+  // }
 }

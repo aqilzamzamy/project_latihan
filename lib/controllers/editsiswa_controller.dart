@@ -33,10 +33,10 @@ class EditSiswaController extends GetxController {
     Get.back();
   }
 
-  double get contentWidth {
-    double screenWidth = Get.width;
-    return screenWidth > 600 ? 600 : screenWidth;
-  }
+  // double get contentWidth {
+  //   double screenWidth = Get.width;
+  //   return screenWidth > 600 ? 600 : screenWidth;
+  // }
 
   @override
   void onClose() {

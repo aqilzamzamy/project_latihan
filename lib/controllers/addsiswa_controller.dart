@@ -26,10 +26,10 @@ class AddSiswaController extends GetxController {
     makananController.clear();
   }
 
-  double get contentWidth {
-    double screenWidth = Get.width;
-    return screenWidth > 600 ? 600 : screenWidth;
-  }
+  // double get contentWidth {
+  //   double screenWidth = Get.width;
+  //   return screenWidth > 600 ? 600 : screenWidth;
+  // }
 
   @override
   void onClose() {
